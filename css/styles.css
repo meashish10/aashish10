@@ -1,35 +1,58 @@
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        margin-top: 20px;
-    }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 0.5em;
-    }
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
 
-    p {
-        line-height: 1.6;
-    }
+nav ul {
+    background: #444;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+}
 
-    .construction {
-        font-size: 1.5em;
-        color: #ff4500;
-        margin-top: 20px;
-    }
+nav ul li {
+    display: inline;
+}
 
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
-</style>
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background: #555;
+}
+
+section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
