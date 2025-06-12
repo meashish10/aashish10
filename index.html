@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aashish Giri - Personal Website</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-    .clock {
-      font-size: 48px;
-      font-weight: bold;
-      color: #333;
-    }
-    .message {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="clock" id="nepalClock">Loading...</div>
-  <div class="message">Under Construction</div>
+  <div class="container">
+    <div class="clock" id="nepalClock">Loading...</div>
+    <div class="message">🚧 Under Construction 🚧</div>
+  </div>
 
   <script>
     function updateNepalClock() {
       const now = new Date();
-      // Get UTC time in milliseconds
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      // Nepal is UTC+5:45 => 5 * 60 + 45 = 345 minutes
       const nepalTime = new Date(utc + (345 * 60000));
-      
+
       const hours = String(nepalTime.getHours()).padStart(2, '0');
       const minutes = String(nepalTime.getMinutes()).padStart(2, '0');
       const seconds = String(nepalTime.getSeconds()).padStart(2, '0');
-      
+
       document.getElementById('nepalClock').textContent = `${hours}:${minutes}:${seconds}`;
     }
 
     setInterval(updateNepalClock, 1000);
-    updateNepalClock(); // initial call
+    updateNepalClock();
   </script>
 
 </body>
