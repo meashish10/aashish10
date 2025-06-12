@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aashish Giri - Personal Website</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <div class="container">
-    <div class="clock" id="nepalClock">Loading...</div>
+    <div class="namaste">🙏 Namaste 🙏</div>
+    <div class="clock-circle">
+      <div class="clock" id="nepalClock">--:--:--</div>
+      <div class="date" id="nepalDate">Loading Date...</div>
+    </div>
     <div class="message">🚧 Under Construction 🚧</div>
   </div>
 
   <script>
-    function updateNepalClock() {
+    function updateNepalTime() {
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const nepalTime = new Date(utc + (345 * 60000));
@@ -23,12 +27,19 @@
       const hours = String(nepalTime.getHours()).padStart(2, '0');
       const minutes = String(nepalTime.getMinutes()).padStart(2, '0');
       const seconds = String(nepalTime.getSeconds()).padStart(2, '0');
+      const dateStr = nepalTime.toLocaleDateString('en-GB', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
 
       document.getElementById('nepalClock').textContent = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('nepalDate').textContent = dateStr;
     }
 
-    setInterval(updateNepalClock, 1000);
-    updateNepalClock();
+    setInterval(updateNepalTime, 1000);
+    updateNepalTime();
   </script>
 
 </body>
