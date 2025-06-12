@@ -1,78 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aashish Giri's Personal Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #0288d1;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #03a9f4;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 20px;
-            margin: 10px;
-        }
-        footer {
-            background-color: #0288d1;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aashish Giri - Personal Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .clock {
+      font-size: 48px;
+      font-weight: bold;
+      color: #333;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Aashish Giri's Personal Website</h1>
-    </header>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <div class="clock" id="nepalClock">Loading...</div>
+  <div class="message">Under Construction</div>
 
-    <section id="about">
-        <h2></h2>
-        <p></p>
-    </section>
+  <script>
+    function updateNepalClock() {
+      const now = new Date();
+      // Get UTC time in milliseconds
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      // Nepal is UTC+5:45 => 5 * 60 + 45 = 345 minutes
+      const nepalTime = new Date(utc + (345 * 60000));
+      
+      const hours = String(nepalTime.getHours()).padStart(2, '0');
+      const minutes = String(nepalTime.getMinutes()).padStart(2, '0');
+      const seconds = String(nepalTime.getSeconds()).padStart(2, '0');
+      
+      document.getElementById('nepalClock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
 
-    <section id="projects">
-        <h2></h2>
-        <p></p>
-        
-    </section>
+    setInterval(updateNepalClock, 1000);
+    updateNepalClock(); // initial call
+  </script>
 
-    <section id=>
-        <h2>Contact</h2>
-        <p> <a href="mailto:aashish@example.com"></a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Aashish Giri. All rights reserved.</p>
-    </footer>
 </body>
 </html>
