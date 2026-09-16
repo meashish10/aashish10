@@ -1,87 +1,442 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Shop</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A curated collection of everyday products, chosen for quality and designed for modern life.">
+  <title>My Shop — Thoughtfully Chosen</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111412'/%3E%3Cpath d='M20 25h24l-2 25H22l-2-25Z' fill='%23d9ff57'/%3E%3Cpath d='M26 27v-5a6 6 0 0 1 12 0v5' fill='none' stroke='%23111412' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #101311;
+      --muted: #626861;
+      --paper: #f4f2ea;
+      --surface: #fffef8;
+      --line: rgba(16, 19, 17, .13);
+      --acid: #d9ff57;
+      --violet: #806cff;
+      --orange: #ff8f58;
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --shadow: 0 24px 70px rgba(25, 30, 26, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 4%, rgba(217,255,87,.24), transparent 22rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    section { scroll-margin-top: 98px; }
+
+    .shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--violet); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(244,242,234,.82);
+      border-bottom: 1px solid rgba(16,19,17,.08);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 1.08rem; font-weight: 850; }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--acid);
+      box-shadow: 0 8px 22px rgba(16,19,17,.2);
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { color: var(--muted); font-size: .94rem; font-weight: 650; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover, .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(16,19,17,.16); }
+    .button-light { background: transparent; color: var(--ink); }
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      align-items: center;
+      gap: 76px;
+      padding-block: 82px 96px;
+    }
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+      line-height: .92;
+      letter-spacing: -.065em;
+      font-weight: 500;
+    }
+    .hero h1 em { color: var(--violet); font-style: italic; }
+    .hero-copy > p:not(.eyebrow) { max-width: 570px; margin: 28px 0 34px; color: var(--muted); font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { margin-top: 32px; display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .9rem; }
+    .avatar-stack { display: flex; }
+    .avatar-stack span { width: 30px; height: 30px; margin-left: -8px; border: 2px solid var(--paper); border-radius: 50%; }
+    .avatar-stack span:first-child { margin-left: 0; background: var(--orange); }
+    .avatar-stack span:nth-child(2) { background: var(--violet); }
+    .avatar-stack span:nth-child(3) { background: var(--acid); }
+
+    .hero-art {
+      position: relative;
+      min-height: 500px;
+      border-radius: 44px;
+      overflow: hidden;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      top: -110px;
+      right: -120px;
+      border: 90px solid var(--acid);
+      border-radius: 50%;
+      opacity: .95;
+    }
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      left: -90px;
+      bottom: -70px;
+      border-radius: 72px;
+      background: var(--violet);
+      transform: rotate(24deg);
+    }
+    .display-card {
+      position: absolute;
+      inset: 72px 46px 48px 82px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 30px;
+      background: rgba(255,255,255,.11);
+      color: white;
+      backdrop-filter: blur(18px);
+      transform: rotate(-3deg);
+    }
+    .display-card small { font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .display-icon { width: 120px; height: 120px; color: var(--acid); filter: drop-shadow(0 15px 24px rgba(0,0,0,.22)); }
+    .display-card h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; font-weight: 500; }
+
+    .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--acid); }
+    .marquee-track { width: max-content; display: flex; gap: 42px; padding: 15px 0; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; animation: drift 24s linear infinite; }
+    .marquee-track span::after { content: "✦"; margin-left: 42px; }
+    @keyframes drift { to { transform: translateX(-50%); } }
+
+    .section { padding-block: 112px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 46px; }
+    .section-head h2, .about-copy h2, .contact-copy h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 500;
+    }
+    .section-head > p { max-width: 440px; margin: 0; color: var(--muted); }
+
+    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .product-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); transition: transform .25s ease, box-shadow .25s ease; }
+    .product-card:hover { transform: translateY(-7px); box-shadow: 0 22px 48px rgba(16,19,17,.1); }
+    .product-visual { position: relative; display: grid; place-items: center; min-height: 330px; overflow: hidden; }
+    .product-card:nth-child(1) .product-visual { background: #d8cfff; }
+    .product-card:nth-child(2) .product-visual { background: #ffc9ab; }
+    .product-card:nth-child(3) .product-visual { background: #e4ff91; }
+    .product-visual::before { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(16,19,17,.22); }
+    .product-visual svg { position: relative; width: 138px; height: 138px; stroke: var(--ink); stroke-width: 1.8; fill: none; filter: drop-shadow(0 18px 18px rgba(16,19,17,.12)); }
+    .tag { position: absolute; top: 18px; left: 18px; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.78); font-size: .72rem; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; backdrop-filter: blur(10px); }
+    .product-info { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px; }
+    .product-info h3 { margin: 0 0 3px; font-size: 1.1rem; }
+    .product-info p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .price { font-weight: 850; font-size: 1.1rem; }
+
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 72px; align-items: center; }
+    .about-panel { min-height: 470px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px; border-radius: var(--radius-lg); background: var(--ink); box-shadow: var(--shadow); transform: rotate(-1.5deg); }
+    .tile { display: flex; flex-direction: column; justify-content: space-between; min-height: 210px; padding: 24px; border-radius: 22px; }
+    .tile strong { font-family: Georgia, serif; font-size: 3rem; font-weight: 500; }
+    .tile span { max-width: 150px; font-weight: 700; line-height: 1.25; }
+    .tile:nth-child(1) { background: var(--acid); }
+    .tile:nth-child(2) { background: var(--surface); }
+    .tile:nth-child(3) { background: var(--violet); color: white; }
+    .tile:nth-child(4) { background: var(--orange); }
+    .about-copy > p:not(.eyebrow) { margin: 28px 0; color: var(--muted); font-size: 1.08rem; }
+    .checks { display: grid; gap: 13px; margin-top: 28px; }
+    .check { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    .check span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--acid); }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 64px;
+      padding: clamp(30px, 6vw, 72px);
+      border-radius: 40px;
+      background: var(--ink);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .contact-copy > p:not(.eyebrow) { margin: 24px 0 0; color: rgba(255,255,255,.66); }
+    .contact-copy .eyebrow::before { background: var(--acid); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: .84rem; color: rgba(255,255,255,.72); font-weight: 650; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      outline: none;
+      padding: 15px 16px;
+      background: rgba(255,255,255,.08);
+      color: white;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    input:focus, textarea:focus { border-color: var(--acid); background: rgba(255,255,255,.12); }
+    textarea { min-height: 130px; resize: vertical; }
+    .form-grid .button { grid-column: 1 / -1; justify-self: start; border-color: var(--acid); background: var(--acid); color: var(--ink); }
+
+    footer { padding-block: 34px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); font-size: .9rem; }
+    .footer-inner a { color: var(--ink); font-weight: 750; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero, .about-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { gap: 50px; padding-block: 64px 78px; }
+      .hero-art { min-height: 430px; }
+      .products { grid-template-columns: 1fr 1fr; }
+      .products .product-card:last-child { grid-column: 1 / -1; }
+      .about-grid { gap: 50px; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 24px, 1160px); }
+      .nav { min-height: 68px; }
+      .nav-cta { min-height: 42px; padding-inline: 15px; }
+      .hero h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
+      .hero-art { min-height: 380px; border-radius: 28px; }
+      .display-card { inset: 50px 24px 38px 42px; padding: 26px; }
+      .section { padding-block: 82px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .products { grid-template-columns: 1fr; }
+      .products .product-card:last-child { grid-column: auto; }
+      .product-visual { min-height: 290px; }
+      .about-panel { min-height: 390px; }
+      .tile { min-height: 175px; padding: 18px; }
+      .tile strong { font-size: 2.2rem; }
+      .contact-card { gap: 38px; border-radius: 28px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full, .form-grid .button { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
-    <div class="container">
-      <h1>🛍️ My Shop</h1>
-      <nav>
+    <div class="shell nav">
+      <a class="brand" href="#home" aria-label="My Shop home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>My Shop</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
       </nav>
+      <a class="nav-cta" href="#products">Shop now <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
-  <!-- Home -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Welcome to My Shop</h2>
-      <p>Your one-stop destination for awesome products!</p>
-      <a href="#products" class="btn">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>We are passionate about quality and customer satisfaction. Whether you're looking for fashion, gadgets, or home decor, we’ve got something just for you.</p>
-    </div>
-  </section>
-
-  <!-- Products -->
-  <section id="products" class="section">
-    <div class="container">
-      <h2>Our Products</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="images/product1.jpg" alt="Product 1" />
-          <h3>Product 1</h3>
-          <p>$25.00</p>
+  <main>
+    <section class="shell hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">The everyday edit</p>
+        <h1>Good things, <em>beautifully</em> chosen.</h1>
+        <p>Discover a thoughtful mix of fashion, gadgets and home essentials—selected for quality, usefulness and a little extra joy.</p>
+        <div class="hero-actions">
+          <a class="button" href="#products">Explore products <span aria-hidden="true">→</span></a>
+          <a class="button button-light" href="#about">Our story</a>
         </div>
-        <div class="product-card">
-          <img src="images/product2.jpg" alt="Product 2" />
-          <h3>Product 2</h3>
-          <p>$30.00</p>
-        </div>
-        <div class="product-card">
-          <img src="images/product3.jpg" alt="Product 3" />
-          <h3>Product 3</h3>
-          <p>$45.00</p>
+        <div class="hero-note">
+          <div class="avatar-stack" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>Quality picks · Simple shopping · Friendly support</span>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="hero-art" aria-label="Featured collection artwork">
+        <div class="display-card">
+          <small>New collection · 2026</small>
+          <svg class="display-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M31 45h58l-5 57H36l-5-57Z" fill="currentColor" stroke="currentColor"/>
+            <path d="M44 48V35c0-10 7-18 16-18s16 8 16 18v13" stroke="#101311" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+          <h2>Made for<br>modern life.</h2>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Fresh finds</span><span>Quality first</span><span>Everyday favourites</span><span>Thoughtful design</span>
+        <span>Fresh finds</span><span>Quality first</span><span>Everyday favourites</span><span>Thoughtful design</span>
+      </div>
     </div>
-  </section>
 
-  <!-- Footer -->
+    <section class="shell section" id="products">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Our collection</p>
+          <h2>Small selection.<br>Strong choices.</h2>
+        </div>
+        <p>Three customer favourites, chosen to bring style, function and value into your day.</p>
+      </div>
+
+      <div class="products">
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="tag">New</span>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 42h60l-5 61H35l-5-61Z"/><path d="M43 44V31c0-11 7-19 17-19s17 8 17 19v13"/></svg>
+          </div>
+          <div class="product-info">
+            <div><h3>Product 1</h3><p>Everyday essential</p></div>
+            <span class="price">$25</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="tag">Popular</span>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="63" r="28"/><path d="M43 18h34l-6 24H49l-6-24ZM49 84h22l6 23H43l6-23Z"/><circle cx="60" cy="63" r="5" fill="currentColor"/></svg>
+          </div>
+          <div class="product-info">
+            <div><h3>Product 2</h3><p>Customer favourite</p></div>
+            <span class="price">$30</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="tag">Premium</span>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M46 18h28l-5 23c15 5 24 17 24 32 0 21-15 32-33 32S27 94 27 73c0-15 9-27 24-32l-5-23Z"/><path d="M40 66c13 8 27 8 40 0"/></svg>
+          </div>
+          <div class="product-info">
+            <div><h3>Product 3</h3><p>Premium pick</p></div>
+            <span class="price">$45</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell section" id="about">
+      <div class="about-grid">
+        <div class="about-panel" aria-label="Our values">
+          <div class="tile"><strong>01</strong><span>Quality you can feel</span></div>
+          <div class="tile"><strong>02</strong><span>Useful by design</span></div>
+          <div class="tile"><strong>03</strong><span>Friendly, simple service</span></div>
+          <div class="tile"><strong>04</strong><span>Chosen with care</span></div>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">About us</p>
+          <h2>Less clutter.<br>More good stuff.</h2>
+          <p>We are passionate about quality and customer satisfaction. Whether you are looking for fashion, gadgets or home décor, we bring together products worth making room for.</p>
+          <div class="checks">
+            <div class="check"><span aria-hidden="true">✓</span> Carefully selected products</div>
+            <div class="check"><span aria-hidden="true">✓</span> Straightforward shopping</div>
+            <div class="check"><span aria-hidden="true">✓</span> Support when you need it</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="contact">
+      <div class="contact-card">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact us</p>
+          <h2>Let’s talk.</h2>
+          <p>Have a product question or need help choosing? Send us a message and we will get back to you.</p>
+        </div>
+        <form class="form-grid" action="#" method="post">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" required>
+          </div>
+          <div class="field full">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+          <button class="button" type="submit">Send message <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <div class="container">
-      <p>© 2025 My Shop. All rights reserved.</p>
+    <div class="shell footer-inner">
+      <span>© 2026 My Shop. All rights reserved.</span>
+      <a href="#home">Back to top ↑</a>
     </div>
   </footer>
-
 </body>
 </html>
