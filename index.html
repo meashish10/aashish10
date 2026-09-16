@@ -2,441 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A curated collection of everyday products, chosen for quality and designed for modern life.">
-  <title>My Shop — Thoughtfully Chosen</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111412'/%3E%3Cpath d='M20 25h24l-2 25H22l-2-25Z' fill='%23d9ff57'/%3E%3Cpath d='M26 27v-5a6 6 0 0 1 12 0v5' fill='none' stroke='%23111412' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Aashish Giri — hospitality operations, customer experience and business leadership professional based in Sydney.">
+  <meta name="theme-color" content="#05070b">
+  <title>Aashish Giri — Personal Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070b'/%3E%3Cpath d='M14 46 28 16h8l14 30h-9l-3-7H25l-3 7h-8Zm14-14h7l-3.5-9-3.5 9Z' fill='%235ffbf1'/%3E%3C/svg%3E">
   <style>
-    :root {
-      --ink: #101311;
-      --muted: #626861;
-      --paper: #f4f2ea;
-      --surface: #fffef8;
-      --line: rgba(16, 19, 17, .13);
-      --acid: #d9ff57;
-      --violet: #806cff;
-      --orange: #ff8f58;
-      --radius-lg: 32px;
-      --radius-md: 22px;
-      --shadow: 0 24px 70px rgba(25, 30, 26, .12);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 12% 4%, rgba(217,255,87,.24), transparent 22rem),
-        var(--paper);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    section { scroll-margin-top: 98px; }
-
-    .shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 18px;
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--violet); }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(244,242,234,.82);
-      border-bottom: 1px solid rgba(16,19,17,.08);
-      backdrop-filter: blur(16px);
-    }
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 1.08rem; font-weight: 850; }
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: var(--ink);
-      color: var(--acid);
-      box-shadow: 0 8px 22px rgba(16,19,17,.2);
-    }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-links a { color: var(--muted); font-size: .94rem; font-weight: 650; transition: color .2s ease; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
-    .nav-cta, .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: white;
-      font-weight: 750;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .button:hover, .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(16,19,17,.16); }
-    .button-light { background: transparent; color: var(--ink); }
-
-    .hero {
-      min-height: 690px;
-      display: grid;
-      grid-template-columns: 1.04fr .96fr;
-      align-items: center;
-      gap: 76px;
-      padding-block: 82px 96px;
-    }
-    .hero h1 {
-      max-width: 720px;
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.4rem, 7vw, 6.8rem);
-      line-height: .92;
-      letter-spacing: -.065em;
-      font-weight: 500;
-    }
-    .hero h1 em { color: var(--violet); font-style: italic; }
-    .hero-copy > p:not(.eyebrow) { max-width: 570px; margin: 28px 0 34px; color: var(--muted); font-size: 1.12rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-note { margin-top: 32px; display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .9rem; }
-    .avatar-stack { display: flex; }
-    .avatar-stack span { width: 30px; height: 30px; margin-left: -8px; border: 2px solid var(--paper); border-radius: 50%; }
-    .avatar-stack span:first-child { margin-left: 0; background: var(--orange); }
-    .avatar-stack span:nth-child(2) { background: var(--violet); }
-    .avatar-stack span:nth-child(3) { background: var(--acid); }
-
-    .hero-art {
-      position: relative;
-      min-height: 500px;
-      border-radius: 44px;
-      overflow: hidden;
-      background: var(--ink);
-      box-shadow: var(--shadow);
-      isolation: isolate;
-    }
-    .hero-art::before {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      top: -110px;
-      right: -120px;
-      border: 90px solid var(--acid);
-      border-radius: 50%;
-      opacity: .95;
-    }
-    .hero-art::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      left: -90px;
-      bottom: -70px;
-      border-radius: 72px;
-      background: var(--violet);
-      transform: rotate(24deg);
-    }
-    .display-card {
-      position: absolute;
-      inset: 72px 46px 48px 82px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 34px;
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 30px;
-      background: rgba(255,255,255,.11);
-      color: white;
-      backdrop-filter: blur(18px);
-      transform: rotate(-3deg);
-    }
-    .display-card small { font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
-    .display-icon { width: 120px; height: 120px; color: var(--acid); filter: drop-shadow(0 15px 24px rgba(0,0,0,.22)); }
-    .display-card h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; font-weight: 500; }
-
-    .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--acid); }
-    .marquee-track { width: max-content; display: flex; gap: 42px; padding: 15px 0; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; animation: drift 24s linear infinite; }
-    .marquee-track span::after { content: "✦"; margin-left: 42px; }
-    @keyframes drift { to { transform: translateX(-50%); } }
-
-    .section { padding-block: 112px; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 46px; }
-    .section-head h2, .about-copy h2, .contact-copy h2 {
-      margin: 0;
-      font-family: Georgia, serif;
-      font-size: clamp(2.5rem, 5vw, 4.4rem);
-      line-height: 1;
-      letter-spacing: -.045em;
-      font-weight: 500;
-    }
-    .section-head > p { max-width: 440px; margin: 0; color: var(--muted); }
-
-    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .product-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); transition: transform .25s ease, box-shadow .25s ease; }
-    .product-card:hover { transform: translateY(-7px); box-shadow: 0 22px 48px rgba(16,19,17,.1); }
-    .product-visual { position: relative; display: grid; place-items: center; min-height: 330px; overflow: hidden; }
-    .product-card:nth-child(1) .product-visual { background: #d8cfff; }
-    .product-card:nth-child(2) .product-visual { background: #ffc9ab; }
-    .product-card:nth-child(3) .product-visual { background: #e4ff91; }
-    .product-visual::before { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(16,19,17,.22); }
-    .product-visual svg { position: relative; width: 138px; height: 138px; stroke: var(--ink); stroke-width: 1.8; fill: none; filter: drop-shadow(0 18px 18px rgba(16,19,17,.12)); }
-    .tag { position: absolute; top: 18px; left: 18px; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.78); font-size: .72rem; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; backdrop-filter: blur(10px); }
-    .product-info { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px; }
-    .product-info h3 { margin: 0 0 3px; font-size: 1.1rem; }
-    .product-info p { margin: 0; color: var(--muted); font-size: .9rem; }
-    .price { font-weight: 850; font-size: 1.1rem; }
-
-    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 72px; align-items: center; }
-    .about-panel { min-height: 470px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px; border-radius: var(--radius-lg); background: var(--ink); box-shadow: var(--shadow); transform: rotate(-1.5deg); }
-    .tile { display: flex; flex-direction: column; justify-content: space-between; min-height: 210px; padding: 24px; border-radius: 22px; }
-    .tile strong { font-family: Georgia, serif; font-size: 3rem; font-weight: 500; }
-    .tile span { max-width: 150px; font-weight: 700; line-height: 1.25; }
-    .tile:nth-child(1) { background: var(--acid); }
-    .tile:nth-child(2) { background: var(--surface); }
-    .tile:nth-child(3) { background: var(--violet); color: white; }
-    .tile:nth-child(4) { background: var(--orange); }
-    .about-copy > p:not(.eyebrow) { margin: 28px 0; color: var(--muted); font-size: 1.08rem; }
-    .checks { display: grid; gap: 13px; margin-top: 28px; }
-    .check { display: flex; align-items: center; gap: 12px; font-weight: 700; }
-    .check span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--acid); }
-
-    .contact-card {
-      display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      gap: 64px;
-      padding: clamp(30px, 6vw, 72px);
-      border-radius: 40px;
-      background: var(--ink);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-    .contact-copy > p:not(.eyebrow) { margin: 24px 0 0; color: rgba(255,255,255,.66); }
-    .contact-copy .eyebrow::before { background: var(--acid); }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .field { display: grid; gap: 8px; }
-    .field.full { grid-column: 1 / -1; }
-    label { font-size: .84rem; color: rgba(255,255,255,.72); font-weight: 650; }
-    input, textarea {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 14px;
-      outline: none;
-      padding: 15px 16px;
-      background: rgba(255,255,255,.08);
-      color: white;
-      transition: border-color .2s ease, background .2s ease;
-    }
-    input:focus, textarea:focus { border-color: var(--acid); background: rgba(255,255,255,.12); }
-    textarea { min-height: 130px; resize: vertical; }
-    .form-grid .button { grid-column: 1 / -1; justify-self: start; border-color: var(--acid); background: var(--acid); color: var(--ink); }
-
-    footer { padding-block: 34px; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); font-size: .9rem; }
-    .footer-inner a { color: var(--ink); font-weight: 750; }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero, .about-grid, .contact-card { grid-template-columns: 1fr; }
-      .hero { gap: 50px; padding-block: 64px 78px; }
-      .hero-art { min-height: 430px; }
-      .products { grid-template-columns: 1fr 1fr; }
-      .products .product-card:last-child { grid-column: 1 / -1; }
-      .about-grid { gap: 50px; }
-    }
-    @media (max-width: 620px) {
-      .shell { width: min(100% - 24px, 1160px); }
-      .nav { min-height: 68px; }
-      .nav-cta { min-height: 42px; padding-inline: 15px; }
-      .hero h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
-      .hero-art { min-height: 380px; border-radius: 28px; }
-      .display-card { inset: 50px 24px 38px 42px; padding: 26px; }
-      .section { padding-block: 82px; }
-      .section-head { align-items: start; flex-direction: column; }
-      .products { grid-template-columns: 1fr; }
-      .products .product-card:last-child { grid-column: auto; }
-      .product-visual { min-height: 290px; }
-      .about-panel { min-height: 390px; }
-      .tile { min-height: 175px; padding: 18px; }
-      .tile strong { font-size: 2.2rem; }
-      .contact-card { gap: 38px; border-radius: 28px; }
-      .form-grid { grid-template-columns: 1fr; }
-      .field.full, .form-grid .button { grid-column: auto; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-    }
+    :root{--bg:#05070b;--panel:rgba(12,18,28,.75);--solid:#0d131d;--text:#f2f7ff;--muted:#8e9bac;--cyan:#5ffbf1;--violet:#956dff;--pink:#ff67d4;--line:rgba(148,172,201,.15);--mono:"SFMono-Regular",Consolas,monospace;--sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:var(--bg);font:16px/1.65 var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}section{scroll-margin-top:96px}::selection{color:var(--bg);background:var(--cyan)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;background:linear-gradient(rgba(95,251,241,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(95,251,241,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(#000,transparent 88%)}
+    body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .ambient{position:fixed;width:48vw;aspect-ratio:1;border-radius:50%;filter:blur(120px);opacity:.14;pointer-events:none;z-index:-2}.ambient.one{top:-25vw;right:-14vw;background:var(--violet)}.ambient.two{bottom:-28vw;left:-18vw;background:var(--cyan)}
+    .shell{width:min(1180px,calc(100% - 42px));margin-inline:auto}.gradient{color:transparent;background:linear-gradient(110deg,var(--cyan),#b2e8ff 42%,var(--violet) 76%,var(--pink));-webkit-background-clip:text;background-clip:text}
+    .topbar{position:fixed;inset:0 0 auto;z-index:30;border-bottom:1px solid transparent;transition:.25s}.topbar.scrolled{background:rgba(5,7,11,.8);border-color:var(--line);backdrop-filter:blur(20px)}.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:13px;font-size:.93rem;font-weight:850;letter-spacing:.08em}.brand-mark{position:relative;display:grid;place-items:center;width:39px;height:39px;border:1px solid rgba(95,251,241,.4);border-radius:11px;background:rgba(95,251,241,.1);color:var(--cyan);font: .82rem var(--mono);box-shadow:0 0 22px rgba(95,251,241,.08)}.brand-mark:after{content:"";position:absolute;right:-3px;bottom:-3px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}.nav-links{display:flex;gap:28px}.nav-links a{color:var(--muted);font-size:.87rem;font-weight:650}.nav-links a:hover{color:var(--cyan)}.nav-status{display:flex;align-items:center;gap:9px;color:#b8c5d3;font:.7rem var(--mono);letter-spacing:.09em;text-transform:uppercase}.pulse{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(95,251,241,.6);animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(95,251,241,0)}}
+    .hero{min-height:100svh;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:68px;padding-block:136px 74px}.kicker{display:flex;align-items:center;gap:13px;margin:0 0 24px;color:var(--cyan);font:.74rem var(--mono);letter-spacing:.13em;text-transform:uppercase}.kicker:before{content:"";width:28px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}.hero h1{margin:0;font-size:clamp(4.2rem,9vw,8.6rem);line-height:.82;letter-spacing:-.07em}.hero h1 span{display:block}.role{min-height:36px;margin:30px 0 0;font:clamp(.86rem,1.6vw,1.06rem) var(--mono);color:#cad5e3}.prompt{color:var(--violet)}.cursor{color:var(--cyan);animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}.hero-copy>p{max-width:630px;margin:24px 0 34px;color:var(--muted);font-size:1.08rem}.actions{display:flex;flex-wrap:wrap;gap:13px}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 21px;border:1px solid rgba(95,251,241,.5);border-radius:11px;background:var(--cyan);color:#041010;font-weight:800;box-shadow:0 0 28px rgba(95,251,241,.16);transition:.2s}.button:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(95,251,241,.28)}.button.secondary{color:var(--text);background:transparent;border-color:var(--line);box-shadow:none}.button.secondary:hover{border-color:rgba(95,251,241,.42);background:rgba(95,251,241,.08)}
+    .visual{position:relative;min-height:520px;display:grid;place-items:center;perspective:1100px}.orb{position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(95,251,241,.34);background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.38),transparent 5%),radial-gradient(circle at 36% 32%,rgba(95,251,241,.7),rgba(149,109,255,.35) 36%,rgba(5,7,11,.05) 69%);box-shadow:inset -40px -40px 70px rgba(0,0,0,.5),inset 20px 20px 45px rgba(95,251,241,.16),0 0 90px rgba(95,251,241,.16);animation:float 7s ease-in-out infinite}.orb:before,.orb:after{content:"";position:absolute;inset:-28px;border:1px solid rgba(149,109,255,.32);border-radius:50%;transform:rotateX(70deg) rotateZ(22deg)}.orb:after{inset:-64px;border-color:rgba(95,251,241,.17);transform:rotateY(72deg) rotateZ(-22deg)}@keyframes float{50%{transform:translateY(-17px) rotate(2deg)}}
+    .terminal{position:absolute;right:0;bottom:8px;width:min(425px,92%);overflow:hidden;border:1px solid rgba(148,172,201,.24);border-radius:17px;background:rgba(7,11,18,.88);box-shadow:0 25px 80px rgba(0,0,0,.45),0 0 45px rgba(95,251,241,.12);backdrop-filter:blur(20px);transform:rotateY(-7deg) rotateX(2deg);transition:transform .15s}.terminal-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--line)}.dots{display:flex;gap:6px}.dots i{width:8px;height:8px;border-radius:50%;background:#344151}.dots i:first-child{background:var(--pink)}.dots i:nth-child(2){background:#ffc75f}.dots i:last-child{background:var(--cyan)}.terminal-head span{color:var(--muted);font:.66rem var(--mono)}.terminal-body{padding:21px;font:.75rem/1.85 var(--mono);color:#b7c6d7}.terminal-body p{margin:0}.key{color:var(--violet)}.value{color:var(--cyan)}.comment{color:#536174}
+    .data-strip{border-block:1px solid var(--line);background:rgba(255,255,255,.015)}.data-grid{display:grid;grid-template-columns:repeat(4,1fr)}.data-item{padding:28px 24px;border-right:1px solid var(--line)}.data-item:last-child{border:0}.data-item small{display:block;color:var(--muted);font:.66rem var(--mono);letter-spacing:.11em;text-transform:uppercase}.data-item strong{display:block;margin-top:5px;font-size:1.05rem}
+    .section{padding-block:118px}.section-tag{display:flex;align-items:center;gap:12px;margin:0 0 18px;color:var(--cyan);font:.69rem var(--mono);letter-spacing:.13em;text-transform:uppercase}.section-tag:before{content:attr(data-index);display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(95,251,241,.3);border-radius:8px;background:rgba(95,251,241,.08)}.section-title{margin:0;max-width:850px;font-size:clamp(2.6rem,5.4vw,5.2rem);line-height:.98;letter-spacing:-.055em}.section-intro{max-width:700px;margin:24px 0 0;color:var(--muted);font-size:1.06rem}
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;margin-top:64px}.about-text{color:#b1becd;font-size:1.05rem}.about-text p{margin:0 0 21px}.profile-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--panel);box-shadow:0 0 45px rgba(95,251,241,.08)}.profile-top{display:flex;align-items:center;gap:20px;padding:25px;border-bottom:1px solid var(--line)}.avatar{display:grid;place-items:center;width:78px;height:78px;border:1px solid rgba(95,251,241,.35);border-radius:20px;background:linear-gradient(145deg,rgba(95,251,241,.14),rgba(149,109,255,.12));color:var(--cyan);font:1.5rem var(--mono)}.profile-top h3{margin:0 0 3px;font-size:1.3rem}.profile-top p{margin:0;color:var(--muted);font:.7rem var(--mono)}.profile-list{padding:8px 25px}.profile-row{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font:.74rem var(--mono)}.profile-row:last-child{border:0}.profile-row span:first-child{color:#617083;text-transform:uppercase;letter-spacing:.08em}.profile-row span:last-child{color:#c5d2e1}
+    .experience-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:64px;margin-top:68px}.experience-aside{position:sticky;top:120px}.experience-aside p{color:var(--muted)}.experience-count{font:clamp(5rem,10vw,8rem)/1 var(--mono);color:transparent;-webkit-text-stroke:1px rgba(95,251,241,.32)}.timeline{position:relative}.timeline:before{content:"";position:absolute;top:20px;bottom:20px;left:7px;width:1px;background:linear-gradient(var(--cyan),var(--violet),transparent)}.job{position:relative;padding:0 0 54px 45px}.job:last-child{padding-bottom:0}.job:before{content:"";position:absolute;top:9px;left:0;width:15px;height:15px;border:2px solid var(--bg);border-radius:50%;background:var(--cyan);box-shadow:0 0 16px rgba(95,251,241,.75)}.job:nth-child(2):before{background:var(--violet)}.job:nth-child(3):before{background:var(--pink)}.job-meta{color:var(--cyan);font:.69rem var(--mono);letter-spacing:.1em;text-transform:uppercase}.job h3{margin:10px 0 4px;font-size:1.45rem}.job h4{margin:0;color:var(--muted);font-size:.93rem}.job p{margin:17px 0 0;color:#9daaba}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:62px}.skill-card{position:relative;min-height:220px;overflow:hidden;padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--panel);transition:.25s}.skill-card:hover{transform:translateY(-6px);border-color:rgba(95,251,241,.35);background:rgba(13,21,31,.92)}.skill-card:after{content:"";position:absolute;width:110px;height:110px;right:-42px;bottom:-45px;border:1px solid rgba(95,251,241,.18);border-radius:50%;box-shadow:0 0 0 18px rgba(95,251,241,.025),0 0 0 38px rgba(149,109,255,.02)}.skill-num{color:#566476;font:.69rem var(--mono)}.skill-icon{display:grid;place-items:center;width:43px;height:43px;margin:34px 0 20px;border:1px solid rgba(95,251,241,.28);border-radius:12px;background:rgba(95,251,241,.08);color:var(--cyan);font:1.04rem var(--mono)}.skill-card h3{margin:0 0 8px;font-size:1.07rem}.skill-card p{margin:0;color:var(--muted);font-size:.9rem}
+    .education-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:62px}.edu-card{padding:31px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(95,251,241,.06),rgba(149,109,255,.035) 58%,transparent)}.status{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(95,251,241,.23);border-radius:999px;color:var(--cyan);font:.64rem var(--mono);text-transform:uppercase;letter-spacing:.09em}.edu-card h3{margin:23px 0 9px;font-size:1.45rem;line-height:1.25}.edu-card p{margin:0;color:var(--muted)}.place{margin-top:24px;color:#c2cfdd;font:.73rem var(--mono)}
+    .focus-panel{position:relative;overflow:hidden;margin-top:62px;padding:clamp(32px,6vw,70px);border:1px solid rgba(95,251,241,.22);border-radius:28px;background:linear-gradient(130deg,rgba(95,251,241,.08),rgba(149,109,255,.09),rgba(255,103,212,.045));box-shadow:0 0 45px rgba(95,251,241,.08)}.focus-panel:before{content:"AG";position:absolute;right:-2vw;bottom:-7vw;color:rgba(255,255,255,.025);font-size:clamp(12rem,25vw,24rem);font-weight:900;line-height:1}.focus-content{position:relative;max-width:780px}.focus-content h3{margin:0;font-size:clamp(2rem,4.5vw,4rem);line-height:1.04;letter-spacing:-.045em}.focus-content>p{max-width:660px;margin:24px 0 0;color:#aab8c7}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:31px}.chip{padding:8px 12px;border:1px solid rgba(148,172,201,.2);border-radius:9px;background:rgba(5,7,11,.36);color:#bfccdb;font:.69rem var(--mono)}
+    .contact{padding-block:130px 70px}.contact-card{position:relative;overflow:hidden;padding:clamp(36px,7vw,82px);border:1px solid var(--line);border-radius:30px;background:var(--solid);text-align:center}.contact-card:before{content:"";position:absolute;width:580px;height:580px;left:50%;top:-440px;transform:translateX(-50%);border-radius:50%;background:var(--cyan);filter:blur(120px);opacity:.14}.contact-card .section-tag{justify-content:center}.contact-card h2{position:relative;max-width:820px;margin:24px auto 0;font-size:clamp(2.7rem,6vw,5.8rem);line-height:.95;letter-spacing:-.06em}.contact-card>p{position:relative;max-width:620px;margin:24px auto 34px;color:var(--muted)}.contact-links{position:relative;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}footer{padding-block:27px 34px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:27px;border-top:1px solid var(--line);color:#667487;font:.68rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:940px){.nav-links{display:none}.hero{grid-template-columns:1fr;min-height:auto;gap:26px;padding-top:145px}.visual{min-height:500px}.terminal{right:8%}.data-grid{grid-template-columns:1fr 1fr}.data-item:nth-child(2){border-right:0}.data-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.about-grid,.experience-grid{grid-template-columns:1fr}.experience-aside{position:static}.skills-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.shell{width:min(100% - 24px,1180px)}.nav{min-height:70px}.nav-status{display:none}.hero{padding-top:118px}.hero h1{font-size:clamp(3.7rem,20vw,5.4rem)}.visual{min-height:420px}.orb{width:245px;height:245px}.terminal{right:0;width:100%;transform:none}.data-grid{grid-template-columns:1fr}.data-item{border-right:0;border-bottom:1px solid var(--line)}.section{padding-block:88px}.about-grid,.experience-grid{margin-top:48px;gap:42px}.profile-row{grid-template-columns:1fr;gap:4px}.skills-grid,.education-grid{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="shell nav">
-      <a class="brand" href="#home" aria-label="My Shop home">
-        <span class="brand-mark" aria-hidden="true">✦</span>
-        <span>My Shop</span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="nav-cta" href="#products">Shop now <span aria-hidden="true">↗</span></a>
-    </div>
-  </header>
+  <div class="ambient one"></div><div class="ambient two"></div>
+  <header class="topbar" id="topbar"><div class="shell nav">
+    <a class="brand" href="#home"><span class="brand-mark">AG</span><span>AASHISH.GIRI</span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Connect</a></nav>
+    <div class="nav-status"><span class="pulse"></span> Sydney / Online</div>
+  </div></header>
 
   <main>
     <section class="shell hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">The everyday edit</p>
-        <h1>Good things, <em>beautifully</em> chosen.</h1>
-        <p>Discover a thoughtful mix of fashion, gadgets and home essentials—selected for quality, usefulness and a little extra joy.</p>
-        <div class="hero-actions">
-          <a class="button" href="#products">Explore products <span aria-hidden="true">→</span></a>
-          <a class="button button-light" href="#about">Our story</a>
-        </div>
-        <div class="hero-note">
-          <div class="avatar-stack" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>Quality picks · Simple shopping · Friendly support</span>
-        </div>
-      </div>
-      <div class="hero-art" aria-label="Featured collection artwork">
-        <div class="display-card">
-          <small>New collection · 2026</small>
-          <svg class="display-icon" viewBox="0 0 120 120" aria-hidden="true">
-            <path d="M31 45h58l-5 57H36l-5-57Z" fill="currentColor" stroke="currentColor"/>
-            <path d="M44 48V35c0-10 7-18 16-18s16 8 16 18v13" stroke="#101311" stroke-width="7" stroke-linecap="round"/>
-          </svg>
-          <h2>Made for<br>modern life.</h2>
-        </div>
-      </div>
+      <div class="hero-copy"><p class="kicker">Personal interface · v2.0</p><h1><span>Aashish</span><span class="gradient">Giri.</span></h1><div class="role"><span class="prompt">&gt; </span><span id="roleText">Hospitality Operations</span><span class="cursor">_</span></div><p>I bring together people, service and systems—building better guest experiences through operational leadership, multicultural communication and business thinking.</p><div class="actions"><a class="button" href="#experience">Explore my journey ↘</a><a class="button secondary" href="https://github.com/meashish10" target="_blank" rel="noreferrer">GitHub profile ↗</a></div></div>
+      <div class="visual" aria-label="Interactive profile visual"><div class="orb"></div><div class="terminal"><div class="terminal-head"><div class="dots"><i></i><i></i><i></i></div><span>profile.json</span></div><div class="terminal-body"><p><span class="key">const</span> profile = {</p><p>&nbsp;&nbsp;name: <span class="value">"Aashish Giri"</span>,</p><p>&nbsp;&nbsp;base: <span class="value">"Sydney, Australia"</span>,</p><p>&nbsp;&nbsp;focus: [</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Hospitality Operations"</span>,</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Customer Experience"</span>,</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Business Leadership"</span></p><p>&nbsp;&nbsp;],</p><p>&nbsp;&nbsp;mindset: <span class="value">"Always learning"</span></p><p>};</p><p class="comment">// turning service into memorable experiences</p></div></div></div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Fresh finds</span><span>Quality first</span><span>Everyday favourites</span><span>Thoughtful design</span>
-        <span>Fresh finds</span><span>Quality first</span><span>Everyday favourites</span><span>Thoughtful design</span>
-      </div>
-    </div>
+    <div class="data-strip"><div class="shell data-grid"><div class="data-item"><small>Current base</small><strong>Sydney, Australia</strong></div><div class="data-item"><small>Core field</small><strong>Hospitality & Operations</strong></div><div class="data-item"><small>Global experience</small><strong>Nepal · Dubai · Australia</strong></div><div class="data-item"><small>Languages</small><strong>English · Nepali · Hindi</strong></div></div></div>
 
-    <section class="shell section" id="products">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Our collection</p>
-          <h2>Small selection.<br>Strong choices.</h2>
-        </div>
-        <p>Three customer favourites, chosen to bring style, function and value into your day.</p>
-      </div>
+    <section class="shell section" id="about"><p class="section-tag reveal" data-index="01">Identity</p><h2 class="section-title reveal">People-first service.<br><span class="gradient">Systems-driven thinking.</span></h2><div class="about-grid"><div class="about-text reveal"><p>I am a hospitality and operations professional with experience across customer care, frontline service and multi-site supervision. Working in multicultural environments has shaped how I communicate, solve problems and lead teams.</p><p>Alongside my professional work, I am developing a stronger business perspective through my MBA in Tourism and Hospitality Leadership. My interests sit at the intersection of customer experience, entrepreneurship, sustainable hospitality and practical innovation.</p><p>I believe the best service feels effortless to the customer—even when strong systems, careful planning and committed teamwork are working behind the scenes.</p></div><aside class="profile-card reveal"><div class="profile-top"><div class="avatar">AG</div><div><h3>Aashish Giri</h3><p>PROFILE_ID // AG-SYD-26</p></div></div><div class="profile-list"><div class="profile-row"><span>Current focus</span><span>Operations & customer experience</span></div><div class="profile-row"><span>Leadership style</span><span>Supportive, practical, accountable</span></div><div class="profile-row"><span>Strength</span><span>Calm problem-solving under pressure</span></div><div class="profile-row"><span>Perspective</span><span>Multicultural & people-focused</span></div></div></aside></div></section>
 
-      <div class="products">
-        <article class="product-card">
-          <div class="product-visual">
-            <span class="tag">New</span>
-            <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 42h60l-5 61H35l-5-61Z"/><path d="M43 44V31c0-11 7-19 17-19s17 8 17 19v13"/></svg>
-          </div>
-          <div class="product-info">
-            <div><h3>Product 1</h3><p>Everyday essential</p></div>
-            <span class="price">$25</span>
-          </div>
-        </article>
+    <section class="shell section" id="experience"><p class="section-tag reveal" data-index="02">Experience log</p><h2 class="section-title reveal">Built through real service,<br>people and operations.</h2><div class="experience-grid"><aside class="experience-aside reveal"><div class="experience-count">03</div><p>Three environments, one consistent focus: reliable operations and positive customer experiences.</p></aside><div class="timeline"><article class="job reveal"><div class="job-meta">Current · Sydney, Australia</div><h3>Multi-site Operations Supervisor</h3><h4>Community and public venues</h4><p>Coordinate teams across multiple locations, manage rosters and site access, conduct inspections, communicate with clients and respond to operational issues.</p></article><article class="job reveal"><div class="job-meta">Dec 2023 — Sep 2024 · Dubai, UAE</div><h3>Customer Care Representative Intern</h3><h4>Dubai World Trade Centre</h4><p>Supported visitors in a fast-moving international events environment, developing strong guest relations, teamwork, conflict resolution and cross-cultural communication skills.</p></article><article class="job reveal"><div class="job-meta">Sydney, Australia</div><h3>Front-of-House & Café Experience</h3><h4>Hospitality service</h4><p>Deliver friendly, efficient customer service while balancing orders, communication and teamwork during busy service periods.</p></article></div></div></section>
 
-        <article class="product-card">
-          <div class="product-visual">
-            <span class="tag">Popular</span>
-            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="63" r="28"/><path d="M43 18h34l-6 24H49l-6-24ZM49 84h22l6 23H43l6-23Z"/><circle cx="60" cy="63" r="5" fill="currentColor"/></svg>
-          </div>
-          <div class="product-info">
-            <div><h3>Product 2</h3><p>Customer favourite</p></div>
-            <span class="price">$30</span>
-          </div>
-        </article>
+    <section class="shell section" id="skills"><p class="section-tag reveal" data-index="03">Capability stack</p><h2 class="section-title reveal">Human skills.<br><span class="gradient">Operational precision.</span></h2><p class="section-intro reveal">A practical mix of service, leadership and business capabilities built across study and work.</p><div class="skills-grid">
+      <article class="skill-card reveal"><span class="skill-num">01 / 06</span><div class="skill-icon">CX</div><h3>Customer Experience</h3><p>Creating calm, clear and welcoming interactions across service environments.</p></article><article class="skill-card reveal"><span class="skill-num">02 / 06</span><div class="skill-icon">OP</div><h3>Operations Coordination</h3><p>Managing people, schedules, site standards and operational issues.</p></article><article class="skill-card reveal"><span class="skill-num">03 / 06</span><div class="skill-icon">LD</div><h3>Team Leadership</h3><p>Giving clear direction, supporting staff and maintaining accountability.</p></article><article class="skill-card reveal"><span class="skill-num">04 / 06</span><div class="skill-icon">CC</div><h3>Cross-cultural Communication</h3><p>Working confidently with people from different cultures and backgrounds.</p></article><article class="skill-card reveal"><span class="skill-num">05 / 06</span><div class="skill-icon">BS</div><h3>Business Strategy</h3><p>Applying consumer insights, entrepreneurship and leadership concepts.</p></article><article class="skill-card reveal"><span class="skill-num">06 / 06</span><div class="skill-icon">PS</div><h3>Problem Solving</h3><p>Responding thoughtfully under pressure with practical solutions.</p></article>
+    </div></section>
 
-        <article class="product-card">
-          <div class="product-visual">
-            <span class="tag">Premium</span>
-            <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M46 18h28l-5 23c15 5 24 17 24 32 0 21-15 32-33 32S27 94 27 73c0-15 9-27 24-32l-5-23Z"/><path d="M40 66c13 8 27 8 40 0"/></svg>
-          </div>
-          <div class="product-info">
-            <div><h3>Product 3</h3><p>Premium pick</p></div>
-            <span class="price">$45</span>
-          </div>
-        </article>
-      </div>
-    </section>
+    <section class="shell section" id="education"><p class="section-tag reveal" data-index="04">Learning system</p><h2 class="section-title reveal">Education that connects<br>theory with practice.</h2><div class="education-grid"><article class="edu-card reveal"><span class="status"><span class="pulse"></span> In progress</span><h3>Master of Business Administration</h3><p>Tourism and Hospitality Leadership</p><div class="place">Kaplan Business School // Sydney, Australia</div></article><article class="edu-card reveal"><span class="status">Completed</span><h3>Bachelor of Hotel Management</h3><p>Hospitality operations, service and management</p><div class="place">Nepal Tourism and Hotel Management College // Pokhara, Nepal</div></article></div><div class="focus-panel reveal"><div class="focus-content"><p class="kicker">Innovation focus</p><h3>Connecting hospitality, sustainability and entrepreneurship.</h3><p>My current interests include sustainable hospitality concepts, customer behaviour, adventure tourism platforms and business models that create practical value for local communities.</p><div class="chips"><span class="chip">Sustainable Hospitality</span><span class="chip">Adventure Tourism</span><span class="chip">Entrepreneurship</span><span class="chip">Consumer Insights</span><span class="chip">Service Innovation</span></div></div></div></section>
 
-    <section class="shell section" id="about">
-      <div class="about-grid">
-        <div class="about-panel" aria-label="Our values">
-          <div class="tile"><strong>01</strong><span>Quality you can feel</span></div>
-          <div class="tile"><strong>02</strong><span>Useful by design</span></div>
-          <div class="tile"><strong>03</strong><span>Friendly, simple service</span></div>
-          <div class="tile"><strong>04</strong><span>Chosen with care</span></div>
-        </div>
-        <div class="about-copy">
-          <p class="eyebrow">About us</p>
-          <h2>Less clutter.<br>More good stuff.</h2>
-          <p>We are passionate about quality and customer satisfaction. Whether you are looking for fashion, gadgets or home décor, we bring together products worth making room for.</p>
-          <div class="checks">
-            <div class="check"><span aria-hidden="true">✓</span> Carefully selected products</div>
-            <div class="check"><span aria-hidden="true">✓</span> Straightforward shopping</div>
-            <div class="check"><span aria-hidden="true">✓</span> Support when you need it</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="shell section" id="contact">
-      <div class="contact-card">
-        <div class="contact-copy">
-          <p class="eyebrow">Contact us</p>
-          <h2>Let’s talk.</h2>
-          <p>Have a product question or need help choosing? Send us a message and we will get back to you.</p>
-        </div>
-        <form class="form-grid" action="#" method="post">
-          <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
-          </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" required>
-          </div>
-          <div class="field full">
-            <label for="message">Your message</label>
-            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
-          </div>
-          <button class="button" type="submit">Send message <span aria-hidden="true">→</span></button>
-        </form>
-      </div>
-    </section>
+    <section class="shell contact" id="contact"><div class="contact-card reveal"><p class="section-tag" data-index="05">Connection protocol</p><h2>Let’s build something<br><span class="gradient">meaningful.</span></h2><p>Interested in hospitality, operations, customer experience or an entrepreneurial idea? Explore my work and connect through GitHub.</p><div class="contact-links"><a class="button" href="https://github.com/meashish10" target="_blank" rel="noreferrer">View GitHub ↗</a><a class="button secondary" href="#home">Return to top ↑</a></div></div></section>
   </main>
 
-  <footer>
-    <div class="shell footer-inner">
-      <span>© 2026 My Shop. All rights reserved.</span>
-      <a href="#home">Back to top ↑</a>
-    </div>
-  </footer>
+  <footer><div class="shell footer-inner"><span>© 2026 Aashish Giri // Sydney, Australia</span><span>Designed for the next chapter.</span></div></footer>
+  <script>
+    const topbar=document.getElementById('topbar');addEventListener('scroll',()=>topbar.classList.toggle('scrolled',scrollY>24),{passive:true});
+    const roles=['Hospitality Operations','Customer Experience','Business Leadership','Entrepreneurial Thinking'],roleText=document.getElementById('roleText');let roleIndex=0;setInterval(()=>{roleText.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-8px)'}],{duration:230,fill:'forwards'}).finished.then(()=>{roleIndex=(roleIndex+1)%roles.length;roleText.textContent=roles[roleIndex];roleText.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:300,fill:'forwards'})})},2600);
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    const visual=document.querySelector('.visual'),terminal=document.querySelector('.terminal');if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){visual.addEventListener('mousemove',e=>{const r=visual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;terminal.style.transform=`rotateY(${x*8-7}deg) rotateX(${y*-7+2}deg) translate3d(${x*7}px,${y*7}px,0)`});visual.addEventListener('mouseleave',()=>terminal.style.transform='rotateY(-7deg) rotateX(2deg)')}
+  </script>
 </body>
 </html>
